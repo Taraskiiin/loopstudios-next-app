@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { alata } from '../fonts';
 
-const navList = ['About', 'Careers', 'Events', 'Products', 'Support'];
+export const navList = ['About', 'Careers', 'Events', 'Products', 'Support'];
 
 export default function Hero() {
 	const [openNav, setOpenNav] = useState<boolean>(false);

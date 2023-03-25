@@ -1,7 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 
-// TODO: fix hardcode!
+import { navList } from './Hero';
+
+const socialMediasList = [
+	{
+		id: '1',
+		img: '/assets/icon-facebook.svg',
+	},
+	{ id: '2', img: '/assets/icon-twitter.svg' },
+	{
+		id: '3',
+		img: '/assets/icon-pinterest.svg',
+	},
+	{ id: '4', img: '/assets/icon-instagram.svg' },
+];
+
 export default function Footer() {
 	return (
 		<footer className='bg-black'>
@@ -12,58 +26,23 @@ export default function Footer() {
 							<img src='/assets/logo.svg' alt='' className='w-44 md:ml-3' />
 						</div>
 						<div className='flex flex-col items-center space-y-4 font-bold text-white md:flex-row md:space-y-0 md:space-x-6 md:ml-3'>
-							<div className='h-10 group'>
-								<Link href='#'>About</Link>
-								<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
-							</div>
-							<div className='h-10 group'>
-								<Link href='#'>Careers</Link>
-								<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
-							</div>
-							<div className='h-10 group'>
-								<Link href='#'>Events</Link>
-								<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
-							</div>
-							<div className='h-10 group'>
-								<Link href='#'>Products</Link>
-								<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
-							</div>
-							<div className='h-10 group'>
-								<Link href='#'>Support</Link>
-								<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
-							</div>
+							{navList.map((el) => (
+								<div key={el} className='h-10 group'>
+									<Link href='#'>{el}</Link>
+									<div className='mx-2 group-hover:border-b group-hover:border-blue-50'></div>
+								</div>
+							))}
 						</div>
 					</div>
 					<div className='flex flex-col items-start justify-between space-y-4 text-gray-500'>
 						<div className='flex items-center justify-center mx-auto space-x-4 md:justify-end md:mx-0'>
-							<div className='h-8 group'>
-								<Link href='#'>
-									<img src='/assets/icon-facebook.svg' alt='' className='h-6' />
-								</Link>
-							</div>
-							<div className='h-8 group'>
-								<Link href='#'>
-									<img src='/assets/icon-twitter.svg' alt='' className='h-6' />
-								</Link>
-							</div>
-							<div className='h-8 group'>
-								<Link href='#'>
-									<img
-										src='/assets/icon-pinterest.svg'
-										alt=''
-										className='h-6'
-									/>
-								</Link>
-							</div>
-							<div className='h-8 group'>
-								<Link href='#'>
-									<img
-										src='/assets/icon-instagram.svg'
-										alt=''
-										className='h-6'
-									/>
-								</Link>
-							</div>
+							{socialMediasList.map((el) => (
+								<div key={el.id} className='h-8 group'>
+									<Link href='#'>
+										<img src={el.img} alt='' className='h-6' />
+									</Link>
+								</div>
+							))}
 						</div>
 						<div className='font-bold'>
 							&copy; 2022 Loopstudios. All Rights Reserved
